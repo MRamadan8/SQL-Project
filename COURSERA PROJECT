@@ -1,0 +1,55 @@
+SELECT name, capital FROM us_state 
+WHERE name = "Califonia";
+_____
+SELECT name, capital
+FROM us_state	
+Where name = "Oregon";
+______
+FROM us_state
+WHERE name LIKE "M%"
+ORDER BY name; 
+______
+SELECT * 
+FROM us_state
+WHERE abbreviation  LIKE "N%"
+ORDER BY capital, abbreviation;
+______
+INSERT INTO club_member
+SET first_name = "Mohamed",
+last_name = "Ramadan",
+phone_number = "2042564897";
+______
+INSERT INTO club_member
+SET first_name = "John",
+last_name = "Doe",
+phone_number = "9998887777";
+______
+DELETE FROM club_member 
+WHERE first_name = "JOHN"
+______
+DELETE FROM club_member
+WHERE phone_number = "9998887777";
+______
+SELECT a.first_name, a.middle_name, a.last_name, a.professional_title, b.description
+FROM club_member a, tier b
+WHERE a.tier_code = b.code
+ORDER BY last_name;
+______
+SELECT a.first_name, a.middle_name, a.last_name, a.professional_title, b.description
+FROM club_member a
+JOIN tier b
+ON a.tier_code = b.code
+ORDER BY last_name;
+______
+SELECT b.title, b.author, b.pages, a.language_name
+FROM language as a, submission as b
+WHERE a.language_code = b.language_code
+AND b.pages > 150 
+ORDER BY title; 
+______
+SELECT b.title, b.author, b.pages, a.language_name
+FROM language as a
+JOIN submission as b
+ON a.language_code = b.language_code
+WHERE b.pages > 150 
+ORDER BY title; 
